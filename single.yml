@@ -1,0 +1,6 @@
+services:
+  app:
+    image: node:20-alpine
+    ports: ["80:8080"]
+    environment: [NAME=single]
+    command: sh -c "node -e \"require('http').createServer((req,res)=>{res.end('ok '+process.env.NAME)}).listen(8080)\""
